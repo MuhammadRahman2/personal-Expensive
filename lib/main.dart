@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
+        debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.purple,
@@ -21,16 +21,16 @@ class MyApp extends StatelessWidget {
                 titleMedium: const TextStyle(
                     fontFamily: 'Lato',
                     fontWeight: FontWeight.bold,
-                    fontSize: 18),
+                    fontSize: 20),
                 titleLarge: const TextStyle(
                     fontFamily: 'Lato',
                     fontWeight: FontWeight.bold,
-                    fontSize: 22),
+                    fontSize: 20),
                 // button: const TextStyle(
                 //   color: Colors.white
                 // )
               ),
         ),
-        home: MyHomePage());
+        home: const MyHomePage());
   }
 }

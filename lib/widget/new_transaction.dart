@@ -45,47 +45,51 @@ class _NewTransactionState extends State<NewTransaction> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(10),
-      child: Column(
-        children: [
-          TextField(
-            controller: titleController,
-            decoration: const InputDecoration(labelText: 'title'),
-            onSubmitted: ((value) {
-              submitData();
-            }),
-          ),
-          TextField(
-            controller: amountController,
-            decoration: const InputDecoration(labelText: 'amout'),
-            onSubmitted: ((value) {
-              submitData();
-            }),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Row(
-            children: [
-              Text(
-                _selectedDate == null
-                    ? 'No Date Chosen!'
-                    : 'Picked Date: ${DateFormat.yMd().format(_selectedDate!)}',
-              ),
-              const SizedBox(
-                width: 15,
-              ),
-              TextButton(
-                  onPressed: _presentPicker, child: const Text('Choose Data')),
-            ],
-          ),
-          Align(
-            alignment: Alignment.centerRight,
-            child: TextButton(
-                onPressed: submitData, child: const Text('Add List')),
-          )
-        ],
+    return SingleChildScrollView(
+      child: Container(
+        margin: const EdgeInsets.all(10),
+        child: Column(
+          children: [
+            TextField(
+              controller: titleController,
+              textInputAction: TextInputAction.next,
+              decoration: const InputDecoration(labelText: 'title'),
+              onSubmitted: ((value) {
+                submitData();
+              }),
+            ),
+            TextField(
+              controller: amountController,
+              keyboardType: TextInputType.number,
+              decoration: const InputDecoration(labelText: 'amout'),
+              onSubmitted: ((value) {
+                submitData();
+              }),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Row(
+              children: [
+                Text(
+                  _selectedDate == null
+                      ? 'No Date Chosen!'
+                      : 'Picked Date: ${DateFormat.yMd().format(_selectedDate!)}',
+                ),
+                const SizedBox(
+                  width: 15,
+                ),
+                TextButton(
+                    onPressed: _presentPicker, child: const Text('Choose Data')),
+              ],
+            ),
+            Align(
+              alignment: Alignment.centerRight,
+              child: ElevatedButton(
+                  onPressed: submitData, child: const Text('Add List')),
+            )
+          ],
+        ),
       ),
     );
   }
